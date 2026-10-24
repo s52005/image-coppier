@@ -37,9 +37,9 @@ jobs:
           - source: gitea/runner-images:ubuntu-24.04
             target: ghcr.io/${{ github.repository_owner }}/mirror/gitea-runner-images
             tag: ubuntu-24.04
-          - source: moby/buildkit:buildx-stable-1-amd64
+          - source: moby/buildkit:buildx-stable-1
             target: ghcr.io/${{ github.repository_owner }}/mirror/moby-buildkit
-            tag: buildx-stable-1-amd64
+            tag: buildx-stable-1
           - source: moby/buildkit:latest
             target: ghcr.io/${{ github.repository_owner }}/mirror/moby-buildkit
             tag: latest
