@@ -99,6 +99,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add .mirror-last-checked
+          git add last-checked
           git commit -m "Update mirror check time" || exit 0
           git push
