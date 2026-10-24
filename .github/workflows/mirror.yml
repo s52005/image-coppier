@@ -1,0 +1,52 @@
+name: Mirror images
+
+on:
+  workflow_dispatch:
+  push:
+  # schedule:
+  #   - cron: "0 3 * * 1"
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - source: alpine:3.24
+            target: ghcr.io/${{ github.repository_owner }}/alpine
+            tags: |
+              3.24
+              latest
+          - source: busybox:1.37
+            target: ghcr.io/${{ github.repository_owner }}/busybox
+            tags: |
+              1.37
+              latest
+
+    steps:
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy image
+        run: |
+          args=""
+          while IFS= read -r tag; do
+            [ -n "$tag" ] && args="$args -t ${{ matrix.target }}:$tag"
+          done <<'EOF'
+          ${{ matrix.tags }}
+          EOF
+
+          docker buildx imagetools create \
+            --platform linux/amd64,linux/arm64 \
+            $args \
+            ${{ matrix.source }}
