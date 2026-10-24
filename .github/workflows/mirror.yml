@@ -93,7 +93,7 @@ jobs:
 
       - name: Update last checked file
         run: |
-          date -u '+%Y-%m-%d %H:%M:%S UTC' > last-checked
+          TZ="${{ vars.TZ }}" date '+%Y-%m-%d %H:%M:%S %Z' > last-checked
 
       - name: Commit and push
         run: |
