@@ -64,6 +64,27 @@ jobs:
           - source: jekyll/jekyll:4
             target: ghcr.io/${{ github.repository_owner }}/mirror/jekyll/jekyll
             tag: 4
+          - source: mongo:9.0
+            target: ghcr.io/${{ github.repository_owner }}/mirror/mongo:9.0
+            tag: 9.0
+          - source: scylladb/scylla:2026.3
+            target: ghcr.io/${{ github.repository_owner }}/mirror/scylladb/scylla:2026.3
+            tag: 2026.3
+          - source: postgres:17-alpine3.23
+            target: ghcr.io/${{ github.repository_owner }}/mirror/postgres:17-alpine3.23
+            tag: 17-alpine3.23
+          - source: redis:8.8.3-alpine3.23
+            target: ghcr.io/${{ github.repository_owner }}/mirror/redis:8.8.3-alpine3.23
+            tag: 8.8.3-alpine3.23
+          - source: grafana/grafana:13.0-slim
+            target: ghcr.io/${{ github.repository_owner }}/mirror/grafana/grafana:13.0-slim
+            tag: 13.0-slim
+          - source: prom/prometheus:v3
+            target: ghcr.io/${{ github.repository_owner }}/mirror/prom/prometheus:v3
+            tag: v3
+          - source: dbgate/dbgate:7.3.2-alpine
+            target: ghcr.io/${{ github.repository_owner }}/mirror/dbgate/dbgate:7.3.2-alpine
+            tag: 7.3.2-alpine
 
     steps:
       - name: Set up Docker Buildx
