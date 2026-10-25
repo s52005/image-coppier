@@ -85,6 +85,9 @@ jobs:
           - source: dbgate/dbgate
             target: ghcr.io/${{ github.repository_owner }}/mirror/dbgate/dbgate
             tag: 7.3.2-alpine
+          - source: tonistiigi/binfmt
+            target: ghcr.io/${{ github.repository_owner }}/mirror/tonistiigi/binfmt
+            tag: latest
 
     steps:
       - name: Set up Docker Buildx
