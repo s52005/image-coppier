@@ -26,22 +26,22 @@ jobs:
             target: ghcr.io/${{ github.repository_owner }}/mirror/alpine
             tag: 3.24
           - source: gitea/gitea:1.27-rootless
-            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea-gitea
+            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/gitea
             tag: 1.27-rootless
           - source: gitea/runner:5
-            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea-runner
+            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner
             tag: 5
           - source: gitea/runner-images:ubuntu-latest
-            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea-runner-images
+            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner-images
             tag: ubuntu-latest
           - source: gitea/runner-images:ubuntu-24.04
-            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea-runner-images
+            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner-images
             tag: ubuntu-24.04
           - source: moby/buildkit:buildx-stable-1
-            target: ghcr.io/${{ github.repository_owner }}/mirror/moby-buildkit
+            target: ghcr.io/${{ github.repository_owner }}/mirror/moby/buildkit
             tag: buildx-stable-1
           - source: moby/buildkit:latest
-            target: ghcr.io/${{ github.repository_owner }}/mirror/moby-buildkit
+            target: ghcr.io/${{ github.repository_owner }}/mirror/moby/buildkit
             tag: latest
           - source: python:3.15-alpine3.24
             target: ghcr.io/${{ github.repository_owner }}/mirror/python
@@ -50,7 +50,7 @@ jobs:
             target: ghcr.io/${{ github.repository_owner }}/mirror/ubuntu
             tag: 24.04
           - source: gotify/server:3
-            target: ghcr.io/${{ github.repository_owner }}/mirror/gotify-server
+            target: ghcr.io/${{ github.repository_owner }}/mirror/gotify/server
             tag: 3
           - source: node:26
             target: ghcr.io/${{ github.repository_owner }}/mirror/node
@@ -59,10 +59,10 @@ jobs:
             target: ghcr.io/${{ github.repository_owner }}/mirror/node
             tag: 26-alpine3.24
           - source: screego/server:1
-            target: ghcr.io/${{ github.repository_owner }}/mirror/screego-server
+            target: ghcr.io/${{ github.repository_owner }}/mirror/screego/server
             tag: 1
           - source: jekyll/jekyll:4
-            target: ghcr.io/${{ github.repository_owner }}/mirror/jekyll-jekyll
+            target: ghcr.io/${{ github.repository_owner }}/mirror/jekyll/jekyll
             tag: 4
 
     steps:
