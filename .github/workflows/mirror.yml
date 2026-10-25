@@ -19,71 +19,71 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - source: nginx:1.31
+          - source: nginx
             target: ghcr.io/${{ github.repository_owner }}/mirror/nginx
             tag: 1.31
-          - source: alpine:3.24
+          - source: alpine
             target: ghcr.io/${{ github.repository_owner }}/mirror/alpine
             tag: 3.24
-          - source: gitea/gitea:1.27-rootless
+          - source: gitea/gitea
             target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/gitea
             tag: 1.27-rootless
-          - source: gitea/runner:5
+          - source: gitea/runner
             target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner
             tag: 5
-          - source: gitea/runner-images:ubuntu-latest
+          - source: gitea/runner-images
             target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner-images
             tag: ubuntu-latest
-          - source: gitea/runner-images:ubuntu-24.04
+          - source: gitea/runner-images
             target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner-images
             tag: ubuntu-24.04
-          - source: moby/buildkit:buildx-stable-1
+          - source: moby/buildkit
             target: ghcr.io/${{ github.repository_owner }}/mirror/moby/buildkit
             tag: buildx-stable-1
-          - source: moby/buildkit:latest
+          - source: moby/buildkit
             target: ghcr.io/${{ github.repository_owner }}/mirror/moby/buildkit
             tag: latest
-          - source: python:3.15-alpine3.24
+          - source: python
             target: ghcr.io/${{ github.repository_owner }}/mirror/python
             tag: 3.15-alpine3.24
-          - source: ubuntu:24.04
+          - source: ubuntu
             target: ghcr.io/${{ github.repository_owner }}/mirror/ubuntu
             tag: 24.04
-          - source: gotify/server:3
+          - source: gotify/server
             target: ghcr.io/${{ github.repository_owner }}/mirror/gotify/server
             tag: 3
-          - source: node:26
+          - source: node
             target: ghcr.io/${{ github.repository_owner }}/mirror/node
             tag: 26
-          - source: node:26-alpine3.24
+          - source: node
             target: ghcr.io/${{ github.repository_owner }}/mirror/node
             tag: 26-alpine3.24
-          - source: screego/server:1
+          - source: screego/server
             target: ghcr.io/${{ github.repository_owner }}/mirror/screego/server
             tag: 1
-          - source: jekyll/jekyll:4
+          - source: jekyll/jekyll
             target: ghcr.io/${{ github.repository_owner }}/mirror/jekyll/jekyll
             tag: 4
-          - source: mongo:9.0
-            target: ghcr.io/${{ github.repository_owner }}/mirror/mongo:9.0
+          - source: mongo
+            target: ghcr.io/${{ github.repository_owner }}/mirror/mongo
             tag: 9.0
-          - source: scylladb/scylla:2026.3
-            target: ghcr.io/${{ github.repository_owner }}/mirror/scylladb/scylla:2026.3
+          - source: scylladb/scylla
+            target: ghcr.io/${{ github.repository_owner }}/mirror/scylladb/scylla
             tag: 2026.3
-          - source: postgres:17-alpine3.23
-            target: ghcr.io/${{ github.repository_owner }}/mirror/postgres:17-alpine3.23
+          - source: postgres
+            target: ghcr.io/${{ github.repository_owner }}/mirror/postgres
             tag: 17-alpine3.23
-          - source: redis:8.8.3-alpine3.23
-            target: ghcr.io/${{ github.repository_owner }}/mirror/redis:8.8.3-alpine3.23
+          - source: redis
+            target: ghcr.io/${{ github.repository_owner }}/mirror/redis
             tag: 8.8.3-alpine3.23
-          - source: grafana/grafana:13.0-slim
-            target: ghcr.io/${{ github.repository_owner }}/mirror/grafana/grafana:13.0-slim
+          - source: grafana/grafana
+            target: ghcr.io/${{ github.repository_owner }}/mirror/grafana/grafana
             tag: 13.0-slim
-          - source: prom/prometheus:v3
-            target: ghcr.io/${{ github.repository_owner }}/mirror/prom/prometheus:v3
+          - source: prom/prometheus
+            target: ghcr.io/${{ github.repository_owner }}/mirror/prom/prometheus
             tag: v3
-          - source: dbgate/dbgate:7.3.2-alpine
-            target: ghcr.io/${{ github.repository_owner }}/mirror/dbgate/dbgate:7.3.2-alpine
+          - source: dbgate/dbgate
+            target: ghcr.io/${{ github.repository_owner }}/mirror/dbgate/dbgate
             tag: 7.3.2-alpine
 
     steps:
@@ -102,7 +102,7 @@ jobs:
           docker buildx imagetools create \
             --platform linux/amd64,linux/arm64 \
             -t ${{ matrix.target }}:${{ matrix.tag }} \
-            ${{ matrix.source }}
+            ${{ matrix.source }}:${{ matrix.tag }}
 
   update-check-file:
     runs-on: ubuntu-latest
