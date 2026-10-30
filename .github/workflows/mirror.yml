@@ -37,6 +37,9 @@ jobs:
             tag: ubuntu-latest
           - source: gitea/runner-images
             target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner-images
+            tag: ubuntu-26.04
+          - source: gitea/runner-images
+            target: ghcr.io/${{ github.repository_owner }}/mirror/gitea/runner-images
             tag: ubuntu-24.04
           - source: moby/buildkit
             target: ghcr.io/${{ github.repository_owner }}/mirror/moby/buildkit
