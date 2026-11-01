@@ -92,6 +92,9 @@ jobs:
           - source: tonistiigi/binfmt
             target: ghcr.io/${{ github.repository_owner }}/mirror/tonistiigi/binfmt
             tag: latest
+          - source: docker/dockerfile
+            target: ghcr.io/${{ github.repository_owner }}/mirror/docker/dockerfile
+            tag: 1
 
     steps:
       - name: Set up Docker Buildx
